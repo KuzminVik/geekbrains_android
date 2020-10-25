@@ -2,4 +2,8 @@
 <resources>
     <string name="app_name">Моя погода</string>
     <string name="kaluga">Калуга</string>
+    <string name="humidity">влажность 85%</string>
+    <string name="pressure">давление 765 mm</string>
+    <string name="wind">ветер 3 m/s</string>
+    <string name="data">Четверг, 22 октября</string>
 </resources>
