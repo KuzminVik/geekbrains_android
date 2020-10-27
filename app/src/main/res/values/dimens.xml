@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text size -->
+    <dimen name="text_tmp">55sp</dimen>
+    <dimen name="city_my">30sp</dimen>
+    <dimen name="text_data">18sp</dimen>
+    <dimen name="text_weather">14sp</dimen>
+    <dimen name="text_tmp_week">25sp</dimen>
+    <dimen name="day_week">12sp</dimen>
+    <dimen name="num_day">24sp</dimen>
+
+    <!-- Margins -->
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+
+</resources>

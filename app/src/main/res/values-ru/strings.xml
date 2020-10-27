@@ -6,4 +6,20 @@
     <string name="pressure">давление 765 mm</string>
     <string name="wind">ветер 3 m/s</string>
     <string name="data">Четверг, 22 октября</string>
+    <string name="clear">Ясно</string>
+    <string name="city">Город</string>
+    <string name="friday">Пятница</string>
+    <string name="_6_c">6°C</string>
+    <string name="_23">23</string>
+    <string name="_12_c">12°C</string>
+    <string name="search_for_a_city">Искать город</string>
+    <string name="choose_your_city">Выберите ваш город</string>
+    <string name="moscow">Москва</string>
+    <string name="saint_petersburg">Санкт Петербург</string>
+    <string name="petropavlovsk">Петропавловск</string>
+    <string name="novgorod">Новгород</string>
+    <string name="yaroslavl">Ярославль</string>
+    <string name="to_show_the_strength_of_the_wind">Показать силу ветра</string>
+    <string name="to_show_the_atmospheric_pressure">Показать атмосферное давление</string>
+    <string name="find">поиск</string>
 </resources>
