@@ -22,4 +22,7 @@
     <string name="to_show_the_strength_of_the_wind">To show the strength of the wind</string>
     <string name="to_show_the_atmospheric_pressure">To show the atmospheric pressure</string>
     <string name="find">find</string>
+    <string name="go_Url">what day is it today?</string>
+    <string name="url" translatable="false">https://www.calend.ru/events/</string>
+
 </resources>
