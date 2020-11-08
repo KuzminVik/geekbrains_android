@@ -9,8 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
 public class SelectionActivity extends AppCompatActivity implements Constants{
     private static final String TAG = "MyLogSelectionActivity";
@@ -23,16 +26,29 @@ public class SelectionActivity extends AppCompatActivity implements Constants{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
-//        Button button = findViewById(R.id.button);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(".MainActivity");
-//                startActivity(intent);
-//            }
-//        });
+//        LinearLayout linearLayout = findViewById(R.id.linearLayout);
+//        String[] cities = getResources().getStringArray(R.array.cities);
+//        for(int i=0; i < cities.length; i++){
+//            String city = cities[i];
+//            TextView tv = new TextView(this);
+//            View.generateViewId();
+//            tv.setText(city);
+//            tv.setTextSize(30);
+//            linearLayout.addView(tv);
+//            tv.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    SELECT_CITY = tv.getText().toString();
+//                    tv.setBackgroundResource(R.color.select_city);
+//                    tv.setTextColor(getColor(R.color.white));
+//                    //Здесь надо получить айди вьюхи и указать в востановлении
+//                    Toast.makeText(getApplicationContext(), "SELECT_CITY выбран: "+SELECT_CITY, Toast.LENGTH_SHORT).show();
+//                    Log.d(TAG, "Активити: SELECT_CITY выбран: "+SELECT_CITY);
+//                }
+//            });
+//        }
 
-        TextView twSity = findViewById(R.id.s6);     //Здесь пока что выбран конкретный текствью с Калугой для установки слушателя
+            TextView twSity = findViewById(R.id.s6);     //Здесь пока что выбран конкретный текствью с Калугой для установки слушателя
         twSity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
