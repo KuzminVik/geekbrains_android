@@ -6,53 +6,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 
 public class SelectionActivity extends AppCompatActivity implements Constants{
     private static final String TAG = "MyLogSelectionActivity";
-    private String SELECT_CITY = " ";
+    private String SELECT_CITY = null;
     private Boolean SELECT_WIND = false;
     private Boolean SELECT_PRESSURE = false;
+    Packet currentPacket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
-//        LinearLayout linearLayout = findViewById(R.id.linearLayout);
-//        String[] cities = getResources().getStringArray(R.array.cities);
-//        for(int i=0; i < cities.length; i++){
-//            String city = cities[i];
-//            TextView tv = new TextView(this);
-//            View.generateViewId();
-//            tv.setText(city);
-//            tv.setTextSize(30);
-//            linearLayout.addView(tv);
-//            tv.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    SELECT_CITY = tv.getText().toString();
-//                    tv.setBackgroundResource(R.color.select_city);
-//                    tv.setTextColor(getColor(R.color.white));
-//                    //Здесь надо получить айди вьюхи и указать в востановлении
-//                    Toast.makeText(getApplicationContext(), "SELECT_CITY выбран: "+SELECT_CITY, Toast.LENGTH_SHORT).show();
-//                    Log.d(TAG, "Активити: SELECT_CITY выбран: "+SELECT_CITY);
-//                }
-//            });
-//        }
 
-            TextView twSity = findViewById(R.id.s6);     //Здесь пока что выбран конкретный текствью с Калугой для установки слушателя
+        TextView twSity = findViewById(R.id.s6);   //Здесь пока что выбран конкретный текствью с Калугой для установки слушателя
         twSity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SELECT_CITY = twSity.getText().toString();
+                int temperature = 15;              //Температура для выбранного города приходит с удаленного сервера
+                int wind = 3;                      //Сила ветра для выбранного города приходит с удаленного сервера
+                int pressure = 765;                //Давление для выбранного города приходит с удаленного сервера
+                int humidity = 85;                 //Влажность для выбранного города приходит с удаленного сервера
+                currentPacket = new Packet(temperature, SELECT_CITY, wind, pressure, humidity);
                 twSity.setBackgroundResource(R.color.select_city);
                 twSity.setTextColor(getColor(R.color.white));
                 Toast.makeText(getApplicationContext(), "SELECT_CITY выбран: "+SELECT_CITY, Toast.LENGTH_SHORT).show();
@@ -81,9 +62,13 @@ public class SelectionActivity extends AppCompatActivity implements Constants{
     protected void onSaveInstanceState(Bundle saveInstanceState){
         super.onSaveInstanceState(saveInstanceState);
         Toast.makeText(getApplicationContext(), "сохранение состояния SelectionActivity", Toast.LENGTH_SHORT).show();
-        saveInstanceState.putString(TEXT, SELECT_CITY);
-        saveInstanceState.putBoolean(KEY_1, SELECT_WIND);
-        saveInstanceState.putBoolean(KEY_2, SELECT_PRESSURE);
+        if(SELECT_CITY!=null){
+            saveInstanceState.putString(TEXT, SELECT_CITY);
+            saveInstanceState.putBoolean(KEY_1, SELECT_WIND);
+            saveInstanceState.putBoolean(KEY_2, SELECT_PRESSURE);
+            saveInstanceState.putParcelable(TEXT, currentPacket);
+        }
+
     }
 
     @Override
@@ -91,10 +76,13 @@ public class SelectionActivity extends AppCompatActivity implements Constants{
         super.onRestoreInstanceState(saveInstanceState);
         Toast.makeText(getApplicationContext(), "восстановление состояния SelectionActivity", Toast.LENGTH_SHORT).show();
         SELECT_CITY = saveInstanceState.getString(TEXT);
-        if(SELECT_CITY.equals("Калуга")){
-            TextView twK = findViewById(R.id.s6);
-            twK.setBackgroundResource(R.color.select_city);
-            twK.setTextColor(getColor(R.color.white));
+        currentPacket = saveInstanceState.getParcelable(TEXT);
+        if(SELECT_CITY!=null){
+            if(SELECT_CITY.equals("Калуга")){
+                TextView twK = findViewById(R.id.s6);
+                twK.setBackgroundResource(R.color.select_city);
+                twK.setTextColor(getColor(R.color.white));
+            }
         }
         SELECT_WIND = saveInstanceState.getBoolean(KEY_1);
         if(SELECT_WIND){
@@ -108,12 +96,13 @@ public class SelectionActivity extends AppCompatActivity implements Constants{
         }
     }
 
-
     public void onClickButtonFind(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra(TEXT, SELECT_CITY);
-        intent.putExtra(KEY_1, SELECT_WIND);
-        intent.putExtra(KEY_2, SELECT_PRESSURE);
-        startActivity(intent);
+        if(currentPacket!=null){
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra(TEXT, currentPacket);
+            intent.putExtra(KEY_1, SELECT_WIND);
+            intent.putExtra(KEY_2, SELECT_PRESSURE);
+            startActivity(intent);
+        }
     }
 }

@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">My weather</string>
     <string name="kaluga">Kaluga</string>
-    <string name="_15" translatable="false">15°</string>
-    <string name="humidity">humidity 85%</string>
-    <string name="pressure">pressure 765 mm</string>
-    <string name="wind">wind 3 m/s</string>
+    <string name="temperature" formatted="false">%d°</string>
+    <string name="humidity" formatted="false">humidity %d %%</string>
+    <string name="pressure" formatted="false">pressure %d mm </string>
+    <string name="wind" formatted="false">wind %d m/s</string>
     <string name="data">Thursday, October 22</string>
     <string name="clear">Сlear</string>
     <string name="city">Сity</string>
