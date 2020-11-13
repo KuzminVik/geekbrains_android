@@ -6,4 +6,20 @@
     <string name="pressure">pressure 765 mm</string>
     <string name="wind">wind 3 m/s</string>
     <string name="data">Thursday, October 22</string>
+    <string name="clear">Сlear</string>
+    <string name="city">Сity</string>
+    <string name="friday">Friday</string>
+    <string name="_6_c">6°C</string>
+    <string name="_23">23</string>
+    <string name="_12_c">12°C</string>
+    <string name="search_for_a_city">Search for a city</string>
+    <string name="choose_your_city">Choose your city</string>
+    <string name="moscow">Moscow</string>
+    <string name="saint_petersburg">Saint Petersburg</string>
+    <string name="petropavlovsk">Petropavlovsk</string>
+    <string name="novgorod">Novgorod</string>
+    <string name="yaroslavl">Yaroslavl</string>
+    <string name="to_show_the_strength_of_the_wind">To show the strength of the wind</string>
+    <string name="to_show_the_atmospheric_pressure">To show the atmospheric pressure</string>
+    <string name="find">find</string>
 </resources>

@@ -6,25 +6,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-
-
+public class SelectionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
- //       startActivity(new Intent(this, SelectionActivity.class));
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_selection);
 
-        Button button = findViewById(R.id.search);
+        Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(".SelectionActivity");
+                Intent intent = new Intent(".MainActivity");
                 startActivity(intent);
+ //               Toast.makeText(SelectionActivity.this, "button2 ClickListener event!", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+
+
 }
