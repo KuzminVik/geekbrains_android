@@ -1,8 +1,12 @@
 package ru.geekbrains.myweather;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,14 +15,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity implements Constants{
     private static final String TAG = "MyLog";
     private final String site = "https://www.calend.ru/events/";
     static Packet currentPacket;
-    MainFragment mainFragment;
 
     @SuppressLint({"SetTextI18n", "StringFormatMatches", "StringFormatInvalid"})
     @Override
@@ -26,13 +28,21 @@ public class MainActivity extends AppCompatActivity implements Constants{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        currentPacket = getIntent().getParcelableExtra(TEXT);
-        android.app.Fragment f = getFragmentManager().findFragmentById(R.id.weather_fragment);
-        ((TextView) f.getView().findViewById(R.id.temperature)).setText(getString(R.string.temperature, currentPacket.getTemperature()));
-        ((TextView) f.getView().findViewById(R.id.viewСity)).setText(currentPacket.getCityName());
-        ((TextView) f.getView().findViewById(R.id.wind)).setText(getString(R.string.wind, currentPacket.getWind()));
-        ((TextView) f.getView().findViewById(R.id.pressure)).setText(getString(R.string.pressure, currentPacket.getPressure()));
-        ((TextView) f.getView().findViewById(R.id.humidity)).setText(getString(R.string.humidity, currentPacket.getHumidity()));
+        //Получаем пакет от активити с выбором городов и передаем его в бандле в фрагмент
+        if (savedInstanceState == null){
+            currentPacket = getIntent().getParcelableExtra(TEXT);
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            MainFragment f = new MainFragment();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(KEY, currentPacket);
+            f.setArguments(bundle);
+            ft.replace((R.id.weather_framelayout), f).commit();
+
+        }
+
+        WeekDaySource sourceData = new WeekDaySource(getResources());
+        initRecyclerView(sourceData.build());
 
         Button button = findViewById(R.id.goToUrl);
         button.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements Constants{
     @Override
     protected void onRestoreInstanceState(Bundle saveInstanceState){
         super.onRestoreInstanceState(saveInstanceState);
+        currentPacket = saveInstanceState.getParcelable(TEXT);
+
         Log.d(TAG, "Активити: Повторный запуск! - onRestoreInstanceState()");
     }
 
@@ -78,8 +90,9 @@ public class MainActivity extends AppCompatActivity implements Constants{
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle saveInstanceState){
+    protected void onSaveInstanceState(@NonNull Bundle saveInstanceState){
         super.onSaveInstanceState(saveInstanceState);
+        saveInstanceState.putParcelable(TEXT, currentPacket);
         Log.d(TAG, "Активити: onSaveInstanceState()");
     }
 
@@ -101,5 +114,14 @@ public class MainActivity extends AppCompatActivity implements Constants{
         Log.d(TAG, "Активити: onDestroy()");
     }
 
-
+    private void initRecyclerView(WeekDaySource sourceData){
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+// Эта установка служит для повышения производительности системы
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        // Установим адаптер
+        WeatherListAdapter adapter = new WeatherListAdapter(sourceData);
+        recyclerView.setAdapter(adapter);
+    }
 }

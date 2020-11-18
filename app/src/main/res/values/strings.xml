@@ -8,7 +8,8 @@
     <string name="data">Thursday, October 22</string>
     <string name="clear">Сlear</string>
     <string name="city">Сity</string>
-    <string name="friday">Friday</string>
+    <string name="сelsius" formatted="false">%d°С</string>
+
     <string name="_6_c">6°C</string>
     <string name="_23">23</string>
     <string name="_12_c">12°C</string>
@@ -24,5 +25,21 @@
     <string name="find">find</string>
     <string name="go_Url">what day is it today?</string>
     <string name="url" translatable="false">https://www.calend.ru/events/</string>
+
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+
+    <string name="temp19">19 oct.</string>
+    <string name="temp20">20 oct.</string>
+    <string name="temp21">21 oct.</string>
+    <string name="temp22">22 oct.</string>
+    <string name="temp23">23 oct.</string>
+    <string name="temp24">24 oct.</string>
+    <string name="temp25">25 oct.</string>
 
 </resources>

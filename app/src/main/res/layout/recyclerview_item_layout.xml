@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_weekday"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin_item_5"
+    android:layout_marginTop="@dimen/margin_item_5"
+    android:layout_marginRight="@dimen/margin_item_5"
+    android:layout_marginBottom="@dimen/margin_item_5"
+    app:cardBackgroundColor="#FAF5F5">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrLayout_weekday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView_tempNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_item"
+            android:layout_marginTop="@dimen/margin_item_5"
+            android:layout_marginEnd="@dimen/margin_item"
+            android:text="@string/_6_c"
+            android:textSize="@dimen/textSize_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView_night"
+            app:layout_constraintTop_toTopOf="@+id/imageView_night" />
+
+        <TextView
+            android:id="@+id/textView_dataWeekday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_item"
+            android:layout_marginTop="@dimen/margin_item"
+            android:layout_marginEnd="@dimen/margin_item"
+            android:text="@string/temp19"
+            android:textSize="@dimen/textSize_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView_week_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_item"
+            android:layout_marginEnd="@dimen/margin_item"
+            android:text="@string/friday"
+            android:textAlignment="center"
+            android:textSize="@dimen/textSize_item_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_dataWeekday" />
+
+        <TextView
+            android:id="@+id/textView_tempDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_item"
+            android:layout_marginTop="@dimen/margin_item_5"
+            android:layout_marginEnd="@dimen/margin_item"
+            android:text="@string/_12_c"
+            android:textSize="@dimen/textSize_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView_day"
+            app:layout_constraintTop_toTopOf="@+id/imageView_day" />
+
+        <ImageView
+            android:id="@id/imageView_day"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="@dimen/image_size"
+            android:layout_marginStart="@dimen/margin_item"
+            android:layout_marginTop="@dimen/margin_item_5"
+            android:layout_marginBottom="@dimen/margin_item_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_night"
+            app:srcCompat="@drawable/w5" />
+
+        <ImageView
+            android:id="@+id/imageView_night"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="@dimen/image_size"
+            android:layout_marginStart="@dimen/margin_item"
+            android:layout_marginTop="@dimen/margin_item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_week_day"
+            app:srcCompat="@drawable/w6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
