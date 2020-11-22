@@ -42,4 +42,12 @@
     <string name="temp24">24 oct.</string>
     <string name="temp25">25 oct.</string>
 
+    <string name="devs">About the developers</string>
+    <string name="settings">Settings app</string>
+    <string name="home">Home</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
+    <string name="text_switch">Светлая тема</string>
+
 </resources>

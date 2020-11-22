@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <dimen name="fab_margin">16dp</dimen>
     <!-- Text size -->
     <dimen name="text_tmp">55sp</dimen>
     <dimen name="city_my">30sp</dimen>
@@ -16,7 +18,7 @@
     <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_50">50dp</dimen>
-    <dimen name="fr_layout_marginTop">55dp</dimen>
+    <dimen name="fr_layout_marginTop">35dp</dimen>
     <dimen name="img1">30dp</dimen>
     <dimen name="img2">22dp</dimen>
     <dimen name="margin_20">20dp</dimen>
@@ -31,6 +33,13 @@
     <dimen name="rv_marginTop">220dp</dimen>
     <dimen name="rv_marginBottom">200dp</dimen>
     <dimen name="rv_marginEnd">10dp</dimen>
+    <dimen name="margin_100">100dp</dimen>
+    <dimen name="margin_80">80dp</dimen>
+    <dimen name="elevation_normal">8dp</dimen>
+    <dimen name="margin_64">64dp</dimen>
+    <dimen name="margin_48">48dp</dimen>
+    <dimen name="width_0">0dp</dimen>
+    <dimen name="width_325">325dp</dimen>
 
 
 </resources>
