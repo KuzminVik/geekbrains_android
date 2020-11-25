@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        />
 
     <TextView
         android:id="@+id/temperature"
@@ -39,7 +39,7 @@
         android:textSize="@dimen/text_tmp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="MissingConstraints" />
+        />
 
     <ImageView
         android:id="@+id/sol"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/data"
         app:srcCompat="@drawable/sol"
-        tools:ignore="MissingConstraints" />
+        />
 
     <TextView
         android:id="@+id/textView"
@@ -65,7 +65,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/city"
         app:layout_constraintTop_toBottomOf="@+id/data"
-        tools:ignore="MissingConstraints" />
+        />
 
     <ImageView
         android:id="@+id/city"
@@ -78,7 +78,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/data"
         app:srcCompat="@drawable/city"
-        tools:ignore="MissingConstraints" />
+        />
 
     <TextView
         android:id="@+id/humidity"
@@ -91,7 +91,7 @@
         android:textSize="@dimen/text_weather"
         app:layout_constraintStart_toEndOf="@+id/temperature"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="MissingConstraints" />
+        />
 
     <TextView
         android:id="@+id/pressure"
@@ -102,7 +102,7 @@
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/temperature"
         app:layout_constraintTop_toBottomOf="@+id/humidity"
-        tools:ignore="MissingConstraints" />
+        />
 
     <TextView
         android:id="@+id/wind"
@@ -114,7 +114,7 @@
         android:textSize="@dimen/text_weather"
         app:layout_constraintStart_toEndOf="@+id/temperature"
         app:layout_constraintTop_toBottomOf="@+id/pressure"
-        tools:ignore="MissingConstraints" />
+        />
 
     <TextView
         android:id="@+id/friday"
@@ -127,7 +127,7 @@
         android:textSize="@dimen/day_week"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sol"
-        tools:ignore="MissingConstraints" />
+        />
 
     <TextView
         android:id="@+id/_23"
@@ -160,7 +160,7 @@
         app:layout_constraintStart_toEndOf="@+id/temp2"
         app:layout_constraintTop_toBottomOf="@+id/sol"
         app:srcCompat="@drawable/w5"
-        tools:ignore="MissingConstraints" />
+        />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -181,6 +181,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        />
+
+    <TextView
+        android:id="@+id/textViewTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
