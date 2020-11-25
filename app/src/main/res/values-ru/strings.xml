@@ -22,4 +22,5 @@
     <string name="to_show_the_strength_of_the_wind">Показать силу ветра</string>
     <string name="to_show_the_atmospheric_pressure">Показать атмосферное давление</string>
     <string name="find">поиск</string>
+    <string name="go_Url">Что сегодня за день?</string>
 </resources>

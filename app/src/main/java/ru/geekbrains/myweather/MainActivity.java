@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,15 +12,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Constants{
     private static final String TAG = "MyLog";
+    private final String site = "https://www.calend.ru/events/";
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        startActivity(new Intent(this, SelectionActivity.class)); //Первой в стеке запускаем вторую активити с выбором города
 
         String instanceState;
         if (savedInstanceState == null){instanceState = "Первый запуск!";}
@@ -28,19 +29,30 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle data = getIntent().getExtras();
         if(data!=null){
-            String city = data.getString("city");
-            Boolean wind = (Boolean) data.getBoolean("wind");
-            Boolean pressure = (Boolean) data.getBoolean("pressure");
+            String city = data.getString(TEXT);
+            Boolean wind = (Boolean) data.getBoolean(KEY_1);
+            Boolean pressure = (Boolean) data.getBoolean(KEY_2);
+            TextView twCity = findViewById(R.id.viewСity);
+            twCity.setText(city);
             TextView tw = findViewById(R.id.textViewTest);
-            tw.setText("Из активити мы получаем данные: "+city + " " + wind + " " + pressure);
+            tw.setText("Из активити получаем данные: "+city + " " + wind + " " + pressure);
         }
 
-    Button button = findViewById(R.id.search);
+        Button button = findViewById(R.id.goToUrl);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(".SelectionActivity");
-                startActivity(intent);
+                Uri uri = Uri.parse(site);
+                Intent browser = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(browser);
+            }
+        });
+
+        Button buttonSearch = findViewById(R.id.search);
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
