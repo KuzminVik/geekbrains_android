@@ -41,4 +41,9 @@
     <string name="temp24">24 окт.</string>
     <string name="temp25">25 окт.</string>
 
+    <string name="devs">О разработчиках</string>
+    <string name="settings">Настройки приложения</string>
+    <string name="home">Главная</string>
+    <string name="text_switch">Светлая тема</string>
+
 </resources>

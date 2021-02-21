@@ -7,5 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="select_city">#FF8E71C1</color>
+    <color name="select_city">#F57C00</color>
+    <!-- theme orange color -->
+    <color name="orange_primary">#FF9800</color>
+    <color name="orange_d_primary">#F57C00</color>
+    <color name="orange_l_primary">#FFE0B2</color>
+    <color name="orange_text_icons">#212121</color>
+    <color name="orange_text_primary">#212121</color>
+    <color name="orange_accent">#FF5722</color>
+    <color name="orange_text_second">#757575</color>
+    <color name="orange_divider">#BDBDBD</color>
+    <color name="orange_white">#FFFFFFFF</color>
+
 </resources>

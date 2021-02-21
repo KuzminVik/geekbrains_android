@@ -1,7 +1,8 @@
 package ru.geekbrains.myweather;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.SwitchCompat;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SelectionActivity extends AppCompatActivity implements Constants{
+public class SelectionActivity extends BaseActivity implements Constants{
     private static final String TAG = "MyLogSelectionActivity";
     private String select_city = null;
     private Boolean select_wind = false;
@@ -22,6 +23,18 @@ public class SelectionActivity extends AppCompatActivity implements Constants{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
+
+        SwitchCompat switchCompat = findViewById(R.id.switch_compat);
+        switchCompat.setChecked(isDarkTheme());
+        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setDarkTheme(isChecked);
+                recreate();
+            }
+        });
+
+
         TextView twCity = findViewById(R.id.s6);   //Здесь пока что выбран конкретный текствью с Калугой для установки слушателя
         twCity.setOnClickListener(new View.OnClickListener() {
             @Override

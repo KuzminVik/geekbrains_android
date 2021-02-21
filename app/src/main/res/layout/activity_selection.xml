@@ -2,19 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context=".SelectionActivity">
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_compat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20"
+        android:text="@string/text_switch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_find" />
 
     <TextView
         android:id="@+id/selection_title"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/width_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_30"
         android:text="@string/choose_your_city"
         android:textAlignment="center"
-        android:textColor="#000000"
         android:textSize="@dimen/text_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,13 +32,11 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="325dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/width_325"
+        android:layout_height="@dimen/margin_80"
         android:layout_marginStart="@dimen/margin_30"
         android:layout_marginTop="@dimen/margin_30"
         android:layout_marginEnd="@dimen/margin_30"
-        android:layout_marginBottom="120dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selection_title">
@@ -82,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_30"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margin_20"
         android:checked="false"
         android:text="@string/to_show_the_strength_of_the_wind"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,19 +108,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
-    <Button
-        android:id="@+id/button"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_find"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="100dp"
-        android:background="#2B2321"
+        android:layout_marginStart="@dimen/margin_100"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginEnd="@dimen/margin_100"
+        android:onClick="onClickButtonFind"
         android:text="@string/find"
         android:textAlignment="center"
-        android:onClick="onClickButtonFind"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selection_title" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
