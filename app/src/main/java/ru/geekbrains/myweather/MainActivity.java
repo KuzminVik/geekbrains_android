@@ -1,6 +1,8 @@
 package ru.geekbrains.myweather;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -15,28 +17,22 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements Constants{
     private static final String TAG = "MyLog";
     private final String site = "https://www.calend.ru/events/";
+    static Packet currentPacket;
+    MainFragment mainFragment;
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "StringFormatMatches", "StringFormatInvalid"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String instanceState;
-        if (savedInstanceState == null){instanceState = "Первый запуск!";}
-        else{instanceState = "Повторный запуск!";}
-        Toast.makeText(getApplicationContext(), instanceState + " - onCreate()", Toast.LENGTH_SHORT).show();
-
-        Bundle data = getIntent().getExtras();
-        if(data!=null){
-            String city = data.getString(TEXT);
-            Boolean wind = (Boolean) data.getBoolean(KEY_1);
-            Boolean pressure = (Boolean) data.getBoolean(KEY_2);
-            TextView twCity = findViewById(R.id.viewСity);
-            twCity.setText(city);
-            TextView tw = findViewById(R.id.textViewTest);
-            tw.setText("Из активити получаем данные: "+city + " " + wind + " " + pressure);
-        }
+        currentPacket = getIntent().getParcelableExtra(TEXT);
+        android.app.Fragment f = getFragmentManager().findFragmentById(R.id.weather_fragment);
+        ((TextView) f.getView().findViewById(R.id.temperature)).setText(getString(R.string.temperature, currentPacket.getTemperature()));
+        ((TextView) f.getView().findViewById(R.id.viewСity)).setText(currentPacket.getCityName());
+        ((TextView) f.getView().findViewById(R.id.wind)).setText(getString(R.string.wind, currentPacket.getWind()));
+        ((TextView) f.getView().findViewById(R.id.pressure)).setText(getString(R.string.pressure, currentPacket.getPressure()));
+        ((TextView) f.getView().findViewById(R.id.humidity)).setText(getString(R.string.humidity, currentPacket.getHumidity()));
 
         Button button = findViewById(R.id.goToUrl);
         button.setOnClickListener(new View.OnClickListener() {
@@ -55,62 +51,53 @@ public class MainActivity extends AppCompatActivity implements Constants{
                 finish();
             }
         });
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Toast.makeText(getApplicationContext(), "onStart()", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "Активити: onStart()");
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle saveInstanceState){
         super.onRestoreInstanceState(saveInstanceState);
-        Toast.makeText(getApplicationContext(), "Повторный запуск!! - onRestoreInstanceState()", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "Активити: Повторный запуск! - onRestoreInstanceState()");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(getApplicationContext(), "onResume()", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "Активити: onResume()");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Toast.makeText(getApplicationContext(), "onPause()", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "Активити: onPause()");
     }
 
     @Override
     protected void onSaveInstanceState(Bundle saveInstanceState){
         super.onSaveInstanceState(saveInstanceState);
-        Toast.makeText(getApplicationContext(), "onSaveInstanceState()", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "Активити: onSaveInstanceState()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Toast.makeText(getApplicationContext(), "onStop()", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "Активити: onStop()");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Toast.makeText(getApplicationContext(), "onRestart()", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "Активити: onRestart()");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Toast.makeText(getApplicationContext(), "onDestroy()", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "Активити: onDestroy()");
     }
 
