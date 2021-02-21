@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="100dp"
+    android:layout_marginTop="@dimen/fr_layout_marginTop"
     app:layout_constraintTop_toTopOf="parent"
     tools:context=".MainActivity">
 
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_10"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margin_20"
         android:layout_weight="1"
         android:text="@string/kaluga"
         android:textColor="#000000"
@@ -36,8 +36,8 @@
 
     <ImageView
         android:id="@+id/city"
-        android:layout_width="33dp"
-        android:layout_height="22dp"
+        android:layout_width="@dimen/img1"
+        android:layout_height="@dimen/img2"
         android:layout_marginStart="@dimen/margin_15"
         android:layout_marginTop="@dimen/margin_30"
         android:layout_weight="1"
@@ -48,8 +48,8 @@
 
     <TextView
         android:id="@+id/humidity"
-        android:layout_width="109dp"
-        android:layout_height="19dp"
+        android:layout_width="@dimen/width_125"
+        android:layout_height="@dimen/margin_20"
         android:layout_marginStart="@dimen/margin_10"
         android:layout_marginTop="@dimen/margin_10"
         android:text="@string/humidity"
@@ -60,8 +60,8 @@
 
     <TextView
         android:id="@+id/pressure"
-        android:layout_width="124dp"
-        android:layout_height="19dp"
+        android:layout_width="@dimen/width_125"
+        android:layout_height="@dimen/margin_20"
         android:layout_marginStart="@dimen/margin_10"
         android:text="@string/pressure"
         android:textColor="#000000"
@@ -70,8 +70,8 @@
 
     <TextView
         android:id="@+id/wind"
-        android:layout_width="109dp"
-        android:layout_height="19dp"
+        android:layout_width="@dimen/width_125"
+        android:layout_height="@dimen/margin_20"
         android:layout_marginStart="@dimen/margin_10"
         android:text="@string/wind"
         android:textColor="#000000"

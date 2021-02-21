@@ -8,11 +8,29 @@
     <dimen name="text_tmp_week">25sp</dimen>
     <dimen name="day_week">12sp</dimen>
     <dimen name="num_day">24sp</dimen>
+    <dimen name="textSize_item_small">10sp</dimen>
+    <dimen name="textSize_item">18sp</dimen>
 
     <!-- Margins -->
     <dimen name="margin_15">15dp</dimen>
     <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_50">50dp</dimen>
+    <dimen name="fr_layout_marginTop">55dp</dimen>
+    <dimen name="img1">30dp</dimen>
+    <dimen name="img2">22dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="width_125">125dp</dimen>
+    <dimen name="margin_item">10dp</dimen>
+    <dimen name="margin_item_5">5dp</dimen>
+    <dimen name="image_size_big">100dp</dimen>
+    <dimen name="image_size">33dp</dimen>
+    <dimen name="fragment_marginTop">60dp</dimen>
+    <dimen name="fragment_width">282dp</dimen>
+    <dimen name="fragment_height">131dp</dimen>
+    <dimen name="rv_marginTop">220dp</dimen>
+    <dimen name="rv_marginBottom">200dp</dimen>
+    <dimen name="rv_marginEnd">10dp</dimen>
+
 
 </resources>

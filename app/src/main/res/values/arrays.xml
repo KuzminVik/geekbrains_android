@@ -11,4 +11,44 @@
         <item>Калуга</item>
     </string-array>
 
+    <string-array name="weekday">
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+        <item>@string/saturday</item>
+        <item>@string/sunday</item>
+    </string-array>
+
+    <string-array name="data_weekday">
+        <item>@string/temp19</item>
+        <item>@string/temp20</item>
+        <item>@string/temp21</item>
+        <item>@string/temp22</item>
+        <item>@string/temp23</item>
+        <item>@string/temp24</item>
+        <item>@string/temp25</item>
+    </string-array>
+
+    <array name="pictures_weather_night">
+        <item>@drawable/w6</item>
+        <item>@drawable/w6</item>
+        <item>@drawable/w6</item>
+        <item>@drawable/w6</item>
+        <item>@drawable/w6</item>
+        <item>@drawable/w6</item>
+        <item>@drawable/w6</item>
+    </array>
+
+    <array name="pictures_weather_day">
+        <item>@drawable/w5</item>
+        <item>@drawable/w5</item>
+        <item>@drawable/w5</item>
+        <item>@drawable/w5</item>
+        <item>@drawable/w5</item>
+        <item>@drawable/w5</item>
+        <item>@drawable/w5</item>
+    </array>
+
 </resources>

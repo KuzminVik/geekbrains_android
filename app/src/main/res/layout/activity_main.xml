@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/weather_framelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <fragment
-        android:id="@+id/weather_fragment"
-        android:name="ru.geekbrains.myweather.MainFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp" />
+<!--    <fragment-->
+<!--        android:id="@+id/weather_fragment"-->
+<!--        android:name="ru.geekbrains.myweather.MainFragment"-->
+<!--        android:layout_width="@dimen/fragment_width"-->
+<!--        android:layout_height="@dimen/fragment_height"-->
+<!--        android:layout_marginTop="@dimen/fragment_marginTop" />-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/temp2"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_15"
-            android:layout_marginTop="@dimen/margin_10"
-            android:text="@string/_6_c"
-            android:textSize="@dimen/text_tmp_week"
-            app:layout_constraintStart_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+            android:layout_marginStart="@dimen/margin_10"
+            android:layout_marginTop="@dimen/rv_marginTop"
+            android:layout_marginEnd="@dimen/rv_marginEnd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/data"
@@ -40,145 +42,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--    <TextView-->
-        <!--        android:id="@+id/temperature"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_marginStart="@dimen/margin_15"-->
-        <!--        android:text="@string/_15"-->
-        <!--        android:textColor="#000000"-->
-        <!--        android:textSize="@dimen/text_tmp"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/viewСity"-->
-        <!--        />-->
-
         <ImageView
             android:id="@+id/sol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/image_size_big"
+            android:layout_height="@dimen/image_size_big"
             android:layout_marginEnd="@dimen/margin_15"
             android:contentDescription="@string/clear"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/data"
             app:srcCompat="@drawable/sol" />
-
-        <!--    <TextView-->
-        <!--        android:id="@+id/viewСity"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_marginStart="@dimen/margin_10"-->
-        <!--        android:layout_weight="1"-->
-        <!--        android:text="@string/kaluga"-->
-        <!--        android:textColor="#000000"-->
-        <!--        android:textSize="@dimen/city_my"-->
-        <!--        android:textStyle="bold"-->
-        <!--        app:layout_constraintStart_toEndOf="@+id/city"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/data"-->
-        <!--        />-->
-
-        <!--    <ImageView-->
-        <!--        android:id="@+id/city"-->
-        <!--        android:layout_width="33dp"-->
-        <!--        android:layout_height="22dp"-->
-        <!--        android:layout_marginStart="@dimen/margin_15"-->
-        <!--        android:layout_marginTop="@dimen/margin_10"-->
-        <!--        android:layout_weight="1"-->
-        <!--        android:contentDescription="@string/city"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/data"-->
-        <!--        app:srcCompat="@drawable/city"-->
-        <!--        />-->
-
-        <!--    <TextView-->
-        <!--        android:id="@+id/humidity"-->
-        <!--        android:layout_width="109dp"-->
-        <!--        android:layout_height="19dp"-->
-        <!--        android:layout_marginStart="@dimen/margin_10"-->
-        <!--        android:layout_marginTop="@dimen/margin_10"-->
-        <!--        android:text="@string/humidity"-->
-        <!--        android:textColor="#000000"-->
-        <!--        android:textSize="@dimen/text_weather"-->
-        <!--        app:layout_constraintStart_toEndOf="@+id/temperature"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/viewСity"-->
-        <!--        />-->
-
-        <!--    <TextView-->
-        <!--        android:id="@+id/pressure"-->
-        <!--        android:layout_width="124dp"-->
-        <!--        android:layout_height="19dp"-->
-        <!--        android:layout_marginStart="@dimen/margin_10"-->
-        <!--        android:text="@string/pressure"-->
-        <!--        android:textColor="#000000"-->
-        <!--        app:layout_constraintStart_toEndOf="@+id/temperature"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/humidity"-->
-        <!--        />-->
-
-        <!--    <TextView-->
-        <!--        android:id="@+id/wind"-->
-        <!--        android:layout_width="109dp"-->
-        <!--        android:layout_height="19dp"-->
-        <!--        android:layout_marginStart="@dimen/margin_10"-->
-        <!--        android:text="@string/wind"-->
-        <!--        android:textColor="#000000"-->
-        <!--        android:textSize="@dimen/text_weather"-->
-        <!--        app:layout_constraintStart_toEndOf="@+id/temperature"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/pressure"-->
-        <!--        />-->
-
-        <TextView
-            android:id="@+id/friday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_15"
-            android:layout_marginTop="@dimen/margin_30"
-            android:text="@string/friday"
-            android:textAlignment="center"
-            android:textSize="@dimen/day_week"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sol" />
-
-        <TextView
-            android:id="@+id/_23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_15"
-            android:text="@string/_23"
-            android:textAlignment="center"
-            android:textSize="@dimen/num_day"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/friday" />
-
-        <TextView
-            android:id="@+id/temp1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_15"
-            android:layout_marginTop="@dimen/margin_10"
-            android:text="@string/_12_c"
-            android:textSize="@dimen/text_tmp_week"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-        <ImageView
-            android:id="@id/imageView4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="@dimen/margin_30"
-            android:layout_marginTop="@dimen/margin_30"
-            app:layout_constraintStart_toEndOf="@+id/temp2"
-            app:layout_constraintTop_toBottomOf="@+id/sol"
-            app:srcCompat="@drawable/w5" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="@dimen/margin_15"
-            android:layout_marginTop="@dimen/margin_30"
-            app:layout_constraintStart_toEndOf="@+id/friday"
-            app:layout_constraintTop_toBottomOf="@+id/sol"
-            app:srcCompat="@drawable/w6" />
 
         <Button
             android:id="@+id/search"
@@ -190,26 +63,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goToUrl" />
 
-        <TextView
-            android:id="@+id/textViewTest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15"
-            android:text="Test"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
         <Button
             android:id="@+id/goToUrl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15"
+            android:layout_marginTop="@dimen/margin_20"
             android:text="@string/go_Url"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTest" />
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
